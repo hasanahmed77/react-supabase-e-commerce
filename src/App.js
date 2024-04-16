@@ -1,6 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import './App.css';
 import { useEffect, useState } from 'react';
+import Navbar from './components/Navbar/Navbar';
 
 const supabase = createClient(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_KEY);
 
@@ -25,13 +27,16 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>{item.name}</li>
-        ))}
-      </ul>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        {/* <ul>
+          {items.map((item) => (
+            <li key={item.id}>{item.name}</li>
+          ))}
+        </ul> */}
+      </div>
+    </Router>
   );
 }
 
