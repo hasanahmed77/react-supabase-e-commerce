@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import { createClient } from '@supabase/supabase-js';
 import './App.css';
+import { useEffect, useState } from 'react';
+
+const supabase = createClient(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_KEY);
 
 function App() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    getItems();
+  }, []);
+
+  async function getItems() {
+    try {
+      const { data, error } = await supabase.from("e-commerce-items").select();
+      if (error) {
+        throw error;
+      }
+      setItems(data);
+      console.log(data)
+    } catch (error) {
+      console.error('Error fetching items:', error.message);
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>{item.name}</li>
+        ))}
+      </ul>
     </div>
   );
 }
