@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import './App.css';
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
+import Home from './components/Home/Home';
 
 const supabase = createClient(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_KEY);
 
 function App() {
   const [items, setItems] = useState([]);
+  const [currentGender, setCurrentGender] = useState('WOMEN')
 
   useEffect(() => {
     getItems();
@@ -29,12 +31,14 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
-        {/* <ul>
-          {items.map((item) => (
-            <li key={item.id}>{item.name}</li>
-          ))}
-        </ul> */}
+        <Navbar setCurrentGender={setCurrentGender} />
+        <Router>
+          <Switch>
+            <Route path="/">
+              <Home currentGender={currentGender}/>
+            </Route>
+          </Switch>
+        </Router>
       </div>
     </Router>
   );
