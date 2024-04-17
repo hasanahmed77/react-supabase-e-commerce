@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './home.scss'
 import Carousel from 'react-material-ui-carousel'
-import { Paper, Button } from '@mui/material'
 import ImgWomen1 from '../../images/carousel-women/1.jpg'
 import ImgWomen2 from '../../images/carousel-women/2.jpg'
 import ImgWomen3 from '../../images/carousel-women/3.jpg'
