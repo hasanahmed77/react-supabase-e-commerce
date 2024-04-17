@@ -4,6 +4,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
+import BottomNavbar from './components/BottomNavbar/BottomNavbar';
 
 const supabase = createClient(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_KEY);
 
@@ -39,6 +40,7 @@ function App() {
             </Route>
           </Switch>
         </Router>
+        <BottomNavbar />
       </div>
     </Router>
   );
