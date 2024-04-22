@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './home.scss'
 import Carousel from 'react-material-ui-carousel'
 import ImgWomen1 from '../../images/carousel-women/1.jpg'
@@ -11,6 +12,7 @@ import ImgMen3 from '../../images/carousel-men/3.jpg'
 const Home = ({ currentGender}) => {
     return (
     <div className='home'>
+        <Link to="/shop">
         { currentGender == 'WOMEN' ? 
             (<Carousel
                 centerMode={true} 
@@ -34,6 +36,7 @@ const Home = ({ currentGender}) => {
                 <img src={ImgMen3} className='carousel-img' alt="" />
             </Carousel>)
         }
+        </Link>
     </div>
     )
 }

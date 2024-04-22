@@ -4,6 +4,7 @@
     display: flex !important; /* Important: Override the default display property */
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .carousel-img {
