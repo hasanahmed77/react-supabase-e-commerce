@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import BottomNavbar from './components/BottomNavbar/BottomNavbar';
 import Shop from './pages/Shop/Shop';
+import ItemDetails from './pages/ItemDetails/ItemDetails';
 
 const supabase = createClient(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_KEY);
 
@@ -43,8 +44,15 @@ function App() {
             <Home currentGender={currentGender} />
           </Route>
 
+          <Route exact path="/shop/:id">
+            { items && <ItemDetails items={ items }/> }
+          </Route>
+
           <Route exact path="/shop">
-            <Shop hamburgerOn={hamburgerOn} />
+            <Shop 
+              hamburgerOn={hamburgerOn}
+              items={items}
+            />
           </Route>
         </Switch>
       </div>
