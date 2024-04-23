@@ -4,17 +4,17 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SvgIcon from '@mui/material/SvgIcon';
 import './ShoppingNavbar.scss'
 
-const ShoppingNavbar = () => {
+const ShoppingNavbar = ({ color }) => {
     return (
     <nav className='navbar shopping-navbar'>
         <ul>
-            <li className='shopping-logo'>
+            <li className={ color === 'white' ? 'shopping-logo shopping-logo-white' :'shopping-logo' }>
                 <Link to="/">ARTIFY</Link>
             </li>
             <li className='cart'>
                 <Link to="/">
                     <SvgIcon 
-                        component={ShoppingCartOutlinedIcon}
+                        component={ ShoppingCartOutlinedIcon }
                         style={{ color: 'white' }}
                      />
                 </Link>

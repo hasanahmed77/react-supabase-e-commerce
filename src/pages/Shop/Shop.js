@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import ShoppingNavbar from '../../components/ShoppingNavbar/ShoppingNavbar'
 import './shop.scss'
 import Card from '../../components/Card/Card'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
-const Shop = ({ hamburgerOn }) => {
+const Shop = ({ hamburgerOn, items }) => {
 
   const handleClick = e => {
 
@@ -23,28 +23,16 @@ const Shop = ({ hamburgerOn }) => {
         </div>
 
         <div className="contents">
-          <Link to="/"><Card  onClick = {handleClick}/></Link>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          { items.map(item => (
+            <Link 
+              to={ `/shop/${ item.id }` }
+              key={item.id}
+            >
+              <Card
+                item = {item}
+              />
+            </Link>
+          )) }
         </div>
       </div>
     </div>

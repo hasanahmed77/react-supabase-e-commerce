@@ -11,9 +11,13 @@
     text-shadow: 1px 1px grey;
 }
 
+
 @media (min-width: 768px) {
     .shopping-logo {
         color: black;
+    }
+    .shopping-logo-white {
+        color: white;
     }
     .shopping-navbar {
         background: none;
