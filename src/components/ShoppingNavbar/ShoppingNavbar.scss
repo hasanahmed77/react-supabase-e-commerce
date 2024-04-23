@@ -1,8 +1,21 @@
+.shopping-navbar {
+    position: fixed;
+    background-color: black;
+}
+
 .shopping-logo a {
     text-decoration: none;
-    color: black;
+    color: inherit;
     font-weight: bolder;
     font-style: oblique;
     text-shadow: 1px 1px grey;
-    margin-left: 2rem;
 }
+
+@media (min-width: 768px) {
+    .shopping-logo {
+        color: black;
+    }
+    .shopping-navbar {
+        background: none;
+    }
+  }

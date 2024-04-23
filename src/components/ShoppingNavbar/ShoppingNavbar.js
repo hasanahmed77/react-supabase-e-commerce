@@ -6,7 +6,7 @@ import './ShoppingNavbar.scss'
 
 const ShoppingNavbar = () => {
     return (
-    <nav className='navbar'>
+    <nav className='navbar shopping-navbar'>
         <ul>
             <li className='shopping-logo'>
                 <Link to="/">ARTIFY</Link>

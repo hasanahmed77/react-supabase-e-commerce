@@ -1,0 +1,40 @@
+.card {
+    background-color: white;
+    width: 10rem;
+    height: 17rem;
+    margin: 1rem 2rem 1rem 0rem;
+}
+
+@media (min-width: 768px) {
+    .card {
+        margin-right: 4rem;
+    }
+  }
+
+.card p {
+    font-weight: light;
+    text-align: center;
+}
+
+.card-image {
+    width: 10rem;
+    height: 10rem;
+}
+
+.card-price {
+    font-weight: bold;
+}
+
+.btn {
+    border: none;
+    border-bottom: 0.1px solid white;
+    color: white;
+    background-color: black;
+    padding: 0.3rem;
+    width: 100%;
+}
+
+.options {
+    display: flex;
+    justify-content: space-evenly;
+}

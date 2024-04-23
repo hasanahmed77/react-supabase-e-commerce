@@ -1,3 +1,30 @@
 .shop {
     height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.contents {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 7rem 3rem 0rem 2rem;
+    padding-bottom: 10rem;
+}
+
+.side {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .side {
+        display: block;
+    }
+    .main {
+        padding-left: 16rem;
+    }
+  }
+
+.content a {
+    text-decoration: none;
 }
