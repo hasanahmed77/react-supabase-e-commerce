@@ -5,16 +5,21 @@ import './shop.scss'
 import Card from '../../components/Card/Card'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
-const Shop = ({ hamburgerOn, items }) => {
-
-  const handleClick = e => {
-
-  }
+const Shop = ({ hamburgerOn, items, currentGender, currentProducts, currentSizes, currentColors }) => {
+  const currentItems = items.filter((item) => item.gender === currentGender.toLowerCase())
+  console.log(currentItems)
 
   return (
     <div className='shop'>
       <div className={hamburgerOn ? '' : 'side'}>
-        <Sidebar hamburgerOn = { hamburgerOn }/>  
+        <Sidebar 
+          hamburgerOn = { hamburgerOn }
+          currentItems = { currentItems }
+          currentGender = { currentGender }
+          currentProducts = { currentProducts }
+          currentSizes = { currentSizes }
+          currentColors = { currentColors }
+        />  
       </div>
 
       <div className='main'>
@@ -23,7 +28,7 @@ const Shop = ({ hamburgerOn, items }) => {
         </div>
 
         <div className="contents">
-          { items.map(item => (
+          { currentItems.map(item => (
             <Link 
               to={ `/shop/${ item.id }` }
               key={item.id}

@@ -19,9 +19,9 @@ const ItemDetails = ({ items }) => {
                 <div className="product-name">{ currentItem.name }</div>
                 <div className="product-price">${ currentItem.price }</div>
                 <div className="product-sizes">
-                  <button className='sizes'>S</button>
-                  <button className='sizes'>M</button>
-                  <button className='sizes'>L</button>
+                  <button className='btn-sizes'>S</button>
+                  <button className='btn-sizes'>M</button>
+                  <button className='btn-sizes'>L</button>
                 </div>
                 
                 <div className="add-to-cart">

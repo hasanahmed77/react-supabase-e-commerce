@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, useLocation } from 'react-router-dom';
 import './App.css';
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
@@ -15,10 +15,15 @@ function App() {
   const [currentGender, setCurrentGender] = useState('WOMEN');
   const [hamburgerOn, setHamburgerOn] = useState(false)
 
+  const [currentProducts, setCurrentProducts] = useState('')
+  const [currentSizes, setCurrentSizes] = useState('')
+  const [currentColors, setCurrentColors] = useState('')
+
 
   useEffect(() => {
     getItems();
   }, []);
+
 
   async function getItems() {
     try {
@@ -36,7 +41,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <BottomNavbar hamburgerOn={hamburgerOn} setHamburgerOn={setHamburgerOn} />
+        <BottomNavbar 
+          hamburgerOn = { hamburgerOn } 
+          setHamburgerOn = { setHamburgerOn }
+          setCurrentGender = { setCurrentGender }
+        />
         
         <Switch>
           <Route exact path="/">
@@ -49,10 +58,14 @@ function App() {
           </Route>
 
           <Route exact path="/shop">
-            <Shop 
-              hamburgerOn={hamburgerOn}
-              items={items}
-            />
+            { items && <Shop 
+              hamburgerOn = { hamburgerOn }
+              items = { items }
+              currentGender = { currentGender }
+              currentProducts = { currentProducts }
+              currentSizes = { currentSizes }
+              currentColors = { currentColors }
+            /> }
           </Route>
         </Switch>
       </div>

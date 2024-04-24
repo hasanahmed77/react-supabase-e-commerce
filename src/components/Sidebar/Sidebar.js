@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import './sidebar.css';
 
 const Sidebar = ({ hamburgerOn }) => {
+    const [selectTshirt, setSelectTshirt] = useState(false)
+    const [selectHoodie, setSelectHoodie] = useState(false)
+    const [selectS, setSelectS] = useState(false)
+    const [selectM, setSelectM] = useState(false)
+    const [selectL, setSelectL] = useState(false)
+    const [selectWhite, setSelectWhite] = useState(false)
+    const [selectBlack, setSelectBlack] = useState(false)
+
     const [showProduct, setShowProduct] = useState(false);
     const [showSize, setShowSize] = useState(false);
     const [showColor, setShowColor] = useState(false);
@@ -22,6 +30,9 @@ const Sidebar = ({ hamburgerOn }) => {
         }        
     };
 
+    const handleFilter = () => {
+    }
+
     return (
         <div className={`sidebar ${hamburgerOn ? 'sidebar-phone' : ''}`}>
             <div className="menu-items">
@@ -35,9 +46,9 @@ const Sidebar = ({ hamburgerOn }) => {
                 <p onClick={handleClick}>- SIZES</p>
                 { showSize && <div className="sub-menu">
                     <ul className='sizes'>
-                        <li>S</li>
-                        <li>M</li>
-                        <li>L</li>
+                        <li >S</li>
+                        <li >M</li>
+                        <li >L</li>
                     </ul>
                 </div> }
                 <p onClick={handleClick}>- COLORS</p>
