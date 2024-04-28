@@ -12,7 +12,7 @@ const ShoppingNavbar = ({ color }) => {
                 <Link to="/">ARTIFY</Link>
             </li>
             <li className='cart'>
-                <Link to="/">
+                <Link to="/cart">
                     <SvgIcon 
                         component={ ShoppingCartOutlinedIcon }
                         style={{ color: 'white' }}

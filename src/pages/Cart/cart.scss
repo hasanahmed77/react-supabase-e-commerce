@@ -1,0 +1,42 @@
+.cart-contents {
+    margin-top: 7rem;
+}
+
+.cart-items {
+    color: white;
+    display: flex;
+    border-bottom: 1px solid white;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+}
+
+.cart-image img {
+    width: 9rem;
+    height: 9rem;
+}
+
+.cart-item-details {
+    margin-left: 1rem;
+}
+
+.price {
+    color: white;
+    text-align: center;
+    font-size: larger;
+}
+
+.empty {
+    text-align: center;
+    color: white;
+}
+
+.cart-sizes button {
+    margin-top: 0.3rem;
+    padding: 0.5rem;
+}
+
+.buy button {
+    margin-bottom: 8rem;
+}

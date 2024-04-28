@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './navbar.scss'
-import shoppingCart from '../../images/shopping-cart.png'
+
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SvgIcon from '@mui/material/SvgIcon';
 
@@ -12,12 +12,12 @@ const Navbar = ({ setCurrentGender }) => {
     const handleSelect = (e) => {
         if (e.target.innerText === 'WOMEN') {
             if (selectMen) setSelectMen(!selectMen)
-            setSelectWomen(!selectWomen)
+            if (!selectWomen)setSelectWomen(!selectWomen)
             setCurrentGender('WOMEN')
         } 
         if (e.target.innerText === 'MEN') {
             if (selectWomen) setSelectWomen(!selectWomen)
-            setSelectMen(!selectMen)
+            if (!selectMen) setSelectMen(!selectMen)
             setCurrentGender('MEN')
         } 
     }
@@ -35,7 +35,7 @@ const Navbar = ({ setCurrentGender }) => {
                 </div>
             </li>
             <li className='cart'>
-                <Link to="/">
+                <Link to="/cart">
                     <SvgIcon 
                         component={ShoppingCartOutlinedIcon}
                         style={{ color: 'white' }}
