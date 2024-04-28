@@ -1,24 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import ShoppingNavbar from '../../components/ShoppingNavbar/ShoppingNavbar'
 import './shop.scss'
 import Card from '../../components/Card/Card'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 const Shop = ({ hamburgerOn, items, currentGender, currentProducts, currentSizes, currentColors }) => {
-  const currentItems = items.filter((item) => item.gender === currentGender.toLowerCase())
-  console.log(currentItems)
+  const [currentItems, setCurrentItems] = useState(items.filter((item) => item.gender === currentGender.toLowerCase()))
+
+  console.log('current',currentItems)
+  console.log('items', items)
 
   return (
     <div className='shop'>
       <div className={hamburgerOn ? '' : 'side'}>
         <Sidebar 
           hamburgerOn = { hamburgerOn }
-          currentItems = { currentItems }
           currentGender = { currentGender }
-          currentProducts = { currentProducts }
-          currentSizes = { currentSizes }
-          currentColors = { currentColors }
+          items = { items }
+          currentItems = { currentItems }
+          setCurrentItems = {setCurrentItems}
         />  
       </div>
 
@@ -29,14 +29,9 @@ const Shop = ({ hamburgerOn, items, currentGender, currentProducts, currentSizes
 
         <div className="contents">
           { currentItems.map(item => (
-            <Link 
-              to={ `/shop/${ item.id }` }
-              key={item.id}
-            >
               <Card
                 item = {item}
               />
-            </Link>
           )) }
         </div>
       </div>

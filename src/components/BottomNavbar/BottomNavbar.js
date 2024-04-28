@@ -10,7 +10,7 @@ import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 const BottomNavbar = ({ hamburgerOn, setHamburgerOn, setCurrentGender }) => {
   const location = useLocation();
-
+  
   const openHamburger = () => {
     setHamburgerOn(!hamburgerOn);
   };
@@ -22,6 +22,7 @@ const BottomNavbar = ({ hamburgerOn, setHamburgerOn, setCurrentGender }) => {
   }, [location.pathname]);
 
   return (
+    
     <nav className='navbar-bottom'>
       <ul>
         <li className='btn-home'><Link to='/'><HomeIcon style={{ color: 'black' }} /></Link></li>

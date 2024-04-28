@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './navbar.scss'
+
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SvgIcon from '@mui/material/SvgIcon';
 
@@ -34,7 +35,7 @@ const Navbar = ({ setCurrentGender }) => {
                 </div>
             </li>
             <li className='cart'>
-                <Link to="/">
+                <Link to="/cart">
                     <SvgIcon 
                         component={ShoppingCartOutlinedIcon}
                         style={{ color: 'white' }}
